@@ -4,6 +4,6 @@ namespace TestCodecool;
 
 public class Hanger
 {
-    public bool isEmpty { get; set; }
+    public bool IsEmpty { get; set; }
     public List<Clothing> Clothes { get; set; }
 }

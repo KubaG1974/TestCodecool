@@ -51,4 +51,28 @@ public class Wardrobe
 
         return false;
     }
+
+    public Clothing TakeOutClothing(string clothingId)
+    {
+        foreach (Hanger hanger in hangers)
+        {
+            if (!hanger.IsEmpty && hanger.Clothes != null)
+            {
+                Clothing clothing = hanger.Clothes.Find(c => c.Id == clothingId);
+                if (clothing != null)
+                {
+                    hanger.Clothes.Remove(clothing);
+                    if (hanger.Clothes.Count == 0)
+                    {
+                        hanger.IsEmpty = true;
+                    }
+                    return clothing;
+                }
+            }
+        }
+
+        return null;
+    }
+    
+    
 }
