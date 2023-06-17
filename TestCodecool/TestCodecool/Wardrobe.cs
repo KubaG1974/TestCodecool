@@ -73,6 +73,32 @@ public class Wardrobe
 
         return null;
     }
-    
-    
+
+
+    public bool CheckEmptyHangerForType(string type)
+    {
+        foreach (Hanger hanger in hangers)
+        {
+            if (hanger.IsEmpty)
+            {
+                return true;
+            }
+            else if (type == "shirt" || type == "blouse")
+            {
+                if (hanger.Clothes != null && hanger.Clothes.Exists(c => c.Type == "shirt" || c.Type == "blouse"))
+                {
+                    return true;
+                }
+            }
+            else if (type == "trousers" || type == "skirt")
+            {
+                if (hanger.Clothes != null && hanger.Clothes.Exists(c => c.Type == "trousers" || c.Type == "skirt"))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }
