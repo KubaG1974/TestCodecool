@@ -1,0 +1,15 @@
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/bin/Debug/net7.0/TestCodecool
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/bin/Debug/net7.0/TestCodecool.deps.json
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/bin/Debug/net7.0/TestCodecool.runtimeconfig.json
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/bin/Debug/net7.0/TestCodecool.dll
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/bin/Debug/net7.0/TestCodecool.pdb
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/obj/Debug/net7.0/TestCodecool.csproj.AssemblyReference.cache
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/obj/Debug/net7.0/TestCodecool.GeneratedMSBuildEditorConfig.editorconfig
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/obj/Debug/net7.0/TestCodecool.AssemblyInfoInputs.cache
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/obj/Debug/net7.0/TestCodecool.AssemblyInfo.cs
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/obj/Debug/net7.0/TestCodecool.csproj.CoreCompileInputs.cache
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/obj/Debug/net7.0/TestCodecool.dll
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/obj/Debug/net7.0/refint/TestCodecool.dll
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/obj/Debug/net7.0/TestCodecool.pdb
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/obj/Debug/net7.0/TestCodecool.genruntimeconfig.cache
+/home/jakub/RiderProjects/TestCodecool/TestCodecool/TestCodecool/obj/Debug/net7.0/ref/TestCodecool.dll

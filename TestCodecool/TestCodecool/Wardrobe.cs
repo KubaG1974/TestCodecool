@@ -58,7 +58,7 @@ public class Wardrobe
         {
             if (!hanger.IsEmpty && hanger.Clothes != null)
             {
-                Clothing clothing = hanger.Clothes.Find(c => c.Id == clothingId);
+                Clothing clothing = hanger.Clothes.Find(c => c.Id == clothingId) ?? throw new InvalidOperationException();
                 if (clothing != null)
                 {
                     hanger.Clothes.Remove(clothing);
