@@ -1,16 +1,14 @@
 ﻿namespace TestCodecool;
 
-using System;
-
-public class Program
+class Program
 {
     static void Main()
     {
         Wardrobe wardrobe = new Wardrobe(5);
 
-        Clothing shirt1 = new Clothing { Id = "1", Brand = "Brand1", Type = "shirt" };
-        Clothing blouse1 = new Clothing { Id = "2", Brand = "Brand2", Type = "blouse" };
-        Clothing trousers1 = new Clothing { Id = "3", Brand = "Brand3", Type = "trousers" };
+        Clothing shirt1 = new Clothing("Brand1", "shirt");
+        Clothing blouse1 = new Clothing("Brand2", "blouse");
+        Clothing trousers1 = new Clothing("Brand3", "trousers");
 
         bool success1 = wardrobe.HangClothing(shirt1);
         bool success2 = wardrobe.HangClothing(blouse1);

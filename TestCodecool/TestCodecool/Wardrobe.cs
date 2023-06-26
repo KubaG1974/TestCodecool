@@ -7,46 +7,34 @@ public class Wardrobe
     public Wardrobe(int capacity)
     {
         hangers = new List<Hanger>(capacity);
+
         for (int i = 0; i < capacity; i++)
         {
-            hangers.Add(new Hanger());
+            if (i % 2 == 0)
+            {
+                hangers.Add(new ShirtHanger());
+            }
+            else
+            {
+                hangers.Add(new ComboHanger());
+            }
         }
     }
 
     public bool HangClothing(Clothing clothing)
     {
+        if (clothing == null)
+        {
+            throw new ArgumentNullException(nameof(clothing), "Clothing cannot be null.");
+        }
+
         foreach (Hanger hanger in hangers)
         {
-            if (hanger.IsEmpty)
+            if (hanger.CanHangClothing(clothing))
             {
-                if (hanger.Clothes == null)
-                {
-                    hanger.Clothes = new List<Clothing>();
-                }
-
-                hanger.Clothes.Add(clothing);
-                hanger.IsEmpty = false;
+                hanger.HangClothing(clothing);
                 return true;
             }
-            else if (CanHangOnSameHanger(hanger, clothing))
-            {
-                hanger.Clothes.Add(clothing);
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private bool CanHangOnSameHanger(Hanger hanger, Clothing clothing)
-    {
-        if (clothing.Type == "shirt" || clothing.Type == "blouse")
-        {
-            return hanger.Clothes != null && hanger.Clothes.Exists(c => c.Type == "shirt" || c.Type == "blouse");
-        }
-        else if (clothing.Type == "trousers" || clothing.Type == "skirt")
-        {
-            return hanger.Clothes != null && hanger.Clothes.Exists(c => c.Type == "trousers" || c.Type == "skirt");
         }
 
         return false;
@@ -54,18 +42,19 @@ public class Wardrobe
 
     public Clothing TakeOutClothing(string clothingId)
     {
+        if (clothingId == null)
+        {
+            throw new ArgumentNullException(nameof(clothingId), "Clothing ID cannot be null.");
+        }
+
         foreach (Hanger hanger in hangers)
         {
             if (!hanger.IsEmpty && hanger.Clothes != null)
             {
-                Clothing clothing = hanger.Clothes.Find(c => c.Id == clothingId) ?? throw new InvalidOperationException();
+                Clothing clothing = hanger.Clothes.Find(c => c.Id == clothingId);
                 if (clothing != null)
                 {
-                    hanger.Clothes.Remove(clothing);
-                    if (hanger.Clothes.Count == 0)
-                    {
-                        hanger.IsEmpty = true;
-                    }
+                    hanger.RemoveClothing(clothing);
                     return clothing;
                 }
             }
@@ -74,31 +63,23 @@ public class Wardrobe
         return null;
     }
 
-
     public bool CheckEmptyHangerForType(string type)
     {
+        if (type == null)
+        {
+            throw new ArgumentNullException(nameof(type), "Type cannot be null.");
+        }
+
         foreach (Hanger hanger in hangers)
         {
-            if (hanger.IsEmpty)
+            if (hanger.CanHangClothing(new Clothing("", type))) 
             {
                 return true;
-            }
-            else if (type == "shirt" || type == "blouse")
-            {
-                if (hanger.Clothes != null && hanger.Clothes.Exists(c => c.Type == "shirt" || c.Type == "blouse"))
-                {
-                    return true;
-                }
-            }
-            else if (type == "trousers" || type == "skirt")
-            {
-                if (hanger.Clothes != null && hanger.Clothes.Exists(c => c.Type == "trousers" || c.Type == "skirt"))
-                {
-                    return true;
-                }
             }
         }
 
         return false;
     }
+
 }
+
