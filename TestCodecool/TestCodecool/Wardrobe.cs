@@ -40,7 +40,7 @@ public class Wardrobe
         return false;
     }
 
-    public Clothing TakeOutClothing(string clothingId)
+    public Clothing? TakeOutClothing(string clothingId)
     {
         if (clothingId == null)
         {
@@ -51,7 +51,7 @@ public class Wardrobe
         {
             if (!hanger.IsEmpty && hanger.Clothes != null)
             {
-                Clothing clothing = hanger.Clothes.Find(c => c.Id == clothingId);
+                Clothing? clothing = hanger.Clothes.Find(c => c.Id == clothingId);
                 if (clothing != null)
                 {
                     hanger.RemoveClothing(clothing);
@@ -63,7 +63,8 @@ public class Wardrobe
         return null;
     }
 
-    public bool CheckEmptyHangerForType(string type)
+
+    public bool? CheckEmptyHangerForType(string type)
     {
         if (type == null)
         {
@@ -72,14 +73,14 @@ public class Wardrobe
 
         foreach (Hanger hanger in hangers)
         {
-            if (hanger.CanHangClothing(new Clothing("", type))) 
+            if (hanger.CanHangClothing(new Clothing("",
+                    type))) 
             {
                 return true;
             }
         }
 
-        return false;
+        return false; 
     }
-
 }
 
