@@ -14,8 +14,8 @@ class Program
         bool success2 = wardrobe.HangClothing(blouse1);
         bool success3 = wardrobe.HangClothing(trousers1);
 
-        bool hasEmptyHangerForShirt = wardrobe.CheckEmptyHangerForType("shirt");
-        bool hasEmptyHangerForSkirt = wardrobe.CheckEmptyHangerForType("skirt");
+        bool? hasEmptyHangerForShirt = wardrobe.CheckEmptyHangerForType("shirt");
+        bool? hasEmptyHangerForSkirt = wardrobe.CheckEmptyHangerForType("skirt");
 
         Clothing takenClothing = wardrobe.TakeOutClothing("2");
 
